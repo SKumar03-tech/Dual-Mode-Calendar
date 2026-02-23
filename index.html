@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar with Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body class="theme-light">
+
+<main class="calendar-container">
+
+    <!-- Header -->
+    <header class="calendar-header">
+        <button id="month-picker" class="month-picker">February</button>
+
+        <div class="year-picker">
+            <button id="prev-year" class="year-control">&#10094;</button>
+            <span id="year" class="year-display">2025</span>
+            <button id="next-year" class="year-control">&#10095;</button>
+        </div>
+    </header>
+
+    <!-- Month List -->
+    <div id="month-list" class="month-list"></div>
+
+    <!-- Calendar Body -->
+    <section class="calendar-body">
+        <div class="calendar-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span>
+            <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+
+        <div id="calendar-days" class="calendar-days"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="calendar-footer">
+        <div class="theme-toggle">
+            <span>Dark Mode</span>
+            <button id="dark-mode-toggle" class="dark-mode-switch">
+                <span class="switch-indicator"></span>
+            </button>
+        </div>
+    </footer>
+
+</main>
+
+<!-- Event Modal -->
+<!-- <div id="event-modal" class="event-modal">
+    <div class="event-box">
+        <h3 id="event-title">Add Event</h3>
+        <textarea id="event-text" placeholder="Enter event details..."></textarea>
+        <div class="event-actions">
+            <button id="close-event" class="cancel-btn">Cancel</button>
+            <button id="save-event" class="save-btn">Save</button>
+        </div>
+    </div>
+</div> -->
+
+<script src="app.js"></script>
+</body>
+</html>
