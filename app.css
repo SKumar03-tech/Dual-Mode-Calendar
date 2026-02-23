@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+:root {
+    --primary: #4f46e5;
+    --bg-light: #f3f4f6;
+    --bg-dark: #111827;
+    --card-light: #ffffff;
+    --card-dark: #1f2933;
+    --text-light: #111827;
+    --text-dark: #f9fafb;
+    --muted: #9ca3af;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.theme-dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* Calendar */
+.calendar-container {
+    width: 360px;
+    background: var(--card-light);
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+body.theme-dark .calendar-container {
+    background: var(--card-dark);
+}
+
+/* Header */
+.calendar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.month-picker {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: inherit;
+}
+
+.year-picker {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.year-control {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* Month List */
+.month-list {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.month-list.show {
+    display: grid;
+}
+
+.month-list div {
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.month-list div:hover {
+    background: var(--primary);
+    color: white;
+}
+
+body.theme-dark .month-list {
+    background: var(--card-dark);
+    color: white;
+}
+
+/* Weekdays */
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 10px 0;
+    color: var(--muted);
+}
+
+/* Days */
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    padding: 10px;
+}
+
+.calendar-days div {
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.calendar-days div:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.today {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.has-event::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 6px;
+}
+
+/* Footer */
+.calendar-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark-mode-switch {
+    width: 42px;
+    height: 22px;
+    border-radius: 11px;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+    position: relative;
+}
+
+.switch-indicator {
+    width: 18px;
+    height: 18px;
+    background: white; 
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+body.theme-dark .switch-indicator {
+    transform: translateX(20px);
+}
+
+/* Event Modal */
+/* .event-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+}
+
+.event-modal.active {
+    display: flex;
+}
+
+.event-box {
+    width: 320px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+body.theme-dark .event-box {
+    background: var(--card-dark);
+    color: white;
+}
+
+.event-box textarea {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+}
+
+.event-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-btn, .cancel-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.save-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.cancel-btn {
+    background: #9ca3af;
+    color: white;
+} */
