@@ -11,7 +11,7 @@ const nextYear = document.getElementById("next-year");
 const monthList = document.getElementById("month-list");
 const darkToggle = document.getElementById("dark-mode-toggle");
 
-const modal = document.getElementById("event-modal");
+const model = document.getElementById("event-model");
 const eventText = document.getElementById("event-text");
 const eventTitle = document.getElementById("event-title");
 const saveEvent = document.getElementById("save-event");
@@ -73,25 +73,25 @@ function renderCalendar() {
 }
 
 /* Events */
-// function openEvent(day) {
-//     selectedDate = `${day}-${currentMonth}-${currentYear}`;
-//     eventTitle.textContent = `Event on ${day} ${monthNames[currentMonth]} ${currentYear}`;
-//     eventText.value = events[selectedDate] || "";
-//     modal.classList.add("active");
-// }
+function openEvent(day) {
+    selectedDate = `${day}-${currentMonth}-${currentYear}`;
+    eventTitle.textContent = `Event on ${day} ${monthNames[currentMonth]} ${currentYear}`;
+    eventText.value = events[selectedDate] || "";
+    model.classList.add("active");
+}
 
-// saveEvent.onclick = () => {
-//     if (eventText.value.trim()) {
-//         events[selectedDate] = eventText.value;
-//     } else {
-//         delete events[selectedDate];
-//     }
-//     localStorage.setItem("calendarEvents", JSON.stringify(events));
-//     modal.classList.remove("active");
-//     renderCalendar();
-// };
+saveEvent.onclick = () => {
+    if (eventText.value.trim()) {
+        events[selectedDate] = eventText.value;
+    } else {
+        delete events[selectedDate];
+    }
+    localStorage.setItem("calendarEvents", JSON.stringify(events));
+    model.classList.remove("active");
+    renderCalendar();
+};
 
-// closeEvent.onclick = () => modal.classList.remove("active");
+closeEvent.onclick = () => model.classList.remove("active");
 
 /* Navigation */
 prevYear.onclick = () => {
@@ -106,6 +106,19 @@ nextYear.onclick = () => {
 
 darkToggle.onclick = () => {
     document.body.classList.toggle("theme-dark");
+
+    if (document.body.classList.contains("theme-dark")) {
+        localStorage.setItem("calendarTheme", "dark");
+    } else {
+        localStorage.setItem("calendarTheme", "light");
+    }
 };
 
 renderCalendar();
+
+// Load saved theme on refresh
+const savedTheme = localStorage.getItem("calendarTheme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("theme-dark");
+}

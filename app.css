@@ -199,8 +199,8 @@ body.theme-dark .switch-indicator {
     transform: translateX(20px);
 }
 
-/* Event Modal */
-/* .event-modal {
+/* Event Model */
+.event-model {
     position: fixed;
     inset: 0;
     display: none;
@@ -209,7 +209,7 @@ body.theme-dark .switch-indicator {
     background: rgba(0,0,0,0.5);
 }
 
-.event-modal.active {
+.event-model.active {
     display: flex;
 }
 
@@ -251,4 +251,30 @@ body.theme-dark .event-box {
 .cancel-btn {
     background: #9ca3af;
     color: white;
-} */
+}
+
+/* ========================= */
+/* Tooltip on Hover */
+/* ========================= */
+
+.calendar-days div[data-event]:hover::after {
+    content: attr(data-event);
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111827;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* Dark mode tooltip */
+body.theme-dark .calendar-days div[data-event]:hover::after {
+    background: #f9fafb;
+    color: #111827;
+}
